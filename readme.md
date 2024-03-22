@@ -94,6 +94,59 @@ Users can provide a custom short code for their long URL if available. Implement
 3. Users can access the short URL directly in their browser or use it in their applications.
 4. When users access the short URL, they will be redirected to the original long URL.
 
+### Task-5
+# Language Translation Web App
+
+This web application allows users to translate text from one language to another using an external translation API.
+
+## Features
+
+1. **Language Selection**:
+   - Users can choose the source and target languages for translation using dropdown menus or language selectors.
+
+2. **External Translation API Integration**:
+   - The application integrates with an external translation API (e.g., Google Cloud Translation API, Microsoft Translator API) to perform language translation.
+
+3. **Language Detection**:
+   - Automatic language detection is implemented for the source language when the user enters text.
+
+   ### Task-7
+   # Minimalistic Bookmark Management Chrome Extension
+
+This Chrome extension provides a simple and minimalist interface for managing bookmarks within the browser. It allows users to efficiently organize and access their bookmarks with ease.
+
+## Features
+
+1. **User Interface**:
+   - Clean and minimalist user interface accessible via the Chrome toolbar or browser menu.
+   - Options for adding, deleting, and viewing bookmarks in a straightforward manner.
+   
+2. **Local Storage**:
+   - Bookmark data is stored locally within the Chrome extension using Chrome's storage API.
+   - Bookmark data is persisted across browser sessions, ensuring that users' bookmarks are retained even after closing the browser.
+
+## Installation
+
+To install the extension, follow these steps:
+
+1. Clone or download the repository.
+
+2. Open Google Chrome and navigate to `chrome://extensions/`.
+
+3. Enable Developer Mode by toggling the switch in the top-right corner.
+
+4. Click on "Load unpacked" and select the directory where the extension files are located.
+
+5. The extension will be installed and visible in the Chrome toolbar or browser menu.
+
+## Usage
+
+1. Click on the extension icon in the Chrome toolbar or browser menu to open the bookmark management interface.
+
+2. Use the provided options to add, delete, and view bookmarks.
+
+3. Bookmarks are stored locally within the extension and persist across browser sessions.
+
 
 
 
