@@ -4,7 +4,10 @@
   "version": "1.0",
   "permissions": ["storage", "activeTab"],
   "browser_action": {
-    "default_popup": "popup.html"
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icons/bookmark-16.png"
+    }
   },
   "background": {
     "scripts": ["background.js"],

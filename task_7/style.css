@@ -42,6 +42,35 @@ li:last-child {
 }
 
 #icon-add {
-    width: 50px;
-    height: 50px;
+  width: 50px;
+  height: 50px;
+}
+.bookmark-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.bookmark-link {
+  flex-grow: 1;
+  margin-right: 10px;
+}
+
+.bookmark-content {
+  display: flex;
+  align-items: center;
+}
+
+.bookmark-number {
+  margin-right: 10px; /* Adjust margin as needed */
+}
+
+.bookmark-link {
+  flex-grow: 1;
+  text-align: center;
+  margin: 0 10px; /* Adjust margin as needed */
+}
+
+.deleteBookmark {
+  margin-left: auto;
 }
