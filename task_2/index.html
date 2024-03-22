@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Online Drawing Board</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css"
+    />
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-image: url("background.jpg");
+        background-size: cover;
+        background-position: center;
+        text-align: center; /* Align all content to the center */
+      }
+      #canvas {
+        border: 1px solid #000;
+        cursor: crosshair;
+        background-color: #ffffff; /* Set canvas background color to white */
+      }
+      #controls {
+        margin-top: 10px;
+      }
+      .container {
+        display: inline-block; /* Align container to the center */
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <canvas id="canvas" width="800" height="600"></canvas>
+      <div id="controls">
+        <label for="brushSize">Brush Size:</label>
+        <input
+          type="range"
+          id="brushSize"
+          min="1"
+          max="50"
+          value="10"
+          class="form-range"
+        />
+        <input
+          type="text"
+          id="brushColor"
+          value="#000000"
+          class="form-control"
+        />
+        <button id="clearCanvas" class="btn btn-primary">Clear Canvas</button>
+      </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/spectrum/1.8.0/spectrum.min.js"></script>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdnjs.cloudflare.com/ajax/libs/spectrum/1.8.0/spectrum.min.css"
+    />
+
+    <script>
+      const canvas = document.getElementById("canvas");
+      const ctx = canvas.getContext("2d");
+      let isDrawing = false;
+      let lastX = 0;
+      let lastY = 0;
+
+      function draw(e) {
+        if (!isDrawing) return;
+
+        ctx.strokeStyle = document.getElementById("brushColor").value;
+        ctx.lineWidth = document.getElementById("brushSize").value;
+        ctx.lineCap = "round";
+
+        ctx.beginPath();
+        ctx.moveTo(lastX, lastY);
+        ctx.lineTo(e.offsetX, e.offsetY);
+        ctx.stroke();
+
+        [lastX, lastY] = [e.offsetX, e.offsetY];
+      }
+
+      canvas.addEventListener("mousedown", (e) => {
+        isDrawing = true;
+        [lastX, lastY] = [e.offsetX, e.offsetY];
+      });
+      canvas.addEventListener("mousemove", draw);
+      canvas.addEventListener("mouseup", () => (isDrawing = false));
+      canvas.addEventListener("mouseout", () => (isDrawing = false));
+
+      document.getElementById("clearCanvas").addEventListener("click", () => {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+      });
+
+      $(document).ready(function () {
+        $("#brushColor").spectrum({
+          preferredFormat: "hex",
+          showInput: true,
+          showPalette: true,
+          palette: [
+            ["#000000", "#FF0000", "#00FF00", "#0000FF"],
+            // Add more colors to the palette as needed
+          ],
+          change: function (color) {
+            ctx.strokeStyle = color.toHexString();
+          },
+        });
+      });
+    </script>
+  </body>
+</html>
