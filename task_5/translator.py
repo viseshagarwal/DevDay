@@ -8,7 +8,7 @@ logging.basicConfig(filename='error.log', level=logging.DEBUG)
 
 # Function to call Azure Translator
 def translate_text(text, to_lang):
-    subscription_key = '23adb506265e46d48f2252d8f9314805'
+    subscription_key = 'api-key'
     endpoint = 'https://api.cognitive.microsofttranslator.com/'
     location='southeastasia'
     
